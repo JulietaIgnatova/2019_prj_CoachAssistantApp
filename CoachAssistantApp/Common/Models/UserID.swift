@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UserID.swift
 //  CoachAssistantApp
 //
 //  Created by Yalishanda on 8.02.20.
@@ -8,3 +8,6 @@
 
 import Foundation
 
+struct UserID {
+    var games: [Game]
+}

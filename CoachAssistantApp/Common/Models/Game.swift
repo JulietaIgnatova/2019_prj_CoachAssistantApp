@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Game.swift
 //  CoachAssistantApp
 //
 //  Created by Yalishanda on 8.02.20.
@@ -8,3 +8,8 @@
 
 import Foundation
 
+struct Game: Codable {
+    let players: [String]
+    let events: [Event]
+    let duration: Int
+}

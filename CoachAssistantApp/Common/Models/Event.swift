@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Event.swift
 //  CoachAssistantApp
 //
 //  Created by Yalishanda on 8.02.20.
@@ -8,3 +8,7 @@
 
 import Foundation
 
+struct Event: Codable {
+    let time: Int
+    let type: String
+}
