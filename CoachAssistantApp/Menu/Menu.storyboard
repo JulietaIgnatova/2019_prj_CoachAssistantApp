@@ -61,10 +61,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iP2-Bl-qzP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RsH-JK-2x5"/>
-                    <connections>
-                        <segue destination="a3u-vo-LkJ" kind="show" id="OBv-YD-rdR"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="All Games" id="RsH-JK-2x5">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="gfw-Ql-Ydo">
+                            <connections>
+                                <segue destination="a3u-vo-LkJ" kind="show" id="Zk6-G9-rzv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntL-J1-dwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
