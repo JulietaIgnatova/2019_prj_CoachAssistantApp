@@ -200,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="VOp-q3-8Zf">
-                                <rect key="frame" x="16" y="74" width="343" height="160"/>
+                                <rect key="frame" x="16" y="74" width="343" height="70"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-wv-70a">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="70"/>
@@ -238,8 +238,14 @@
                                             <constraint firstAttribute="trailing" secondItem="4Jv-wK-a6e" secondAttribute="trailing" constant="20" id="y1f-CX-s4e"/>
                                         </constraints>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w9F-8J-MYA">
-                                        <rect key="frame" x="0.0" y="132" width="343" height="29"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successfully added event!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yf8-08-E39">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.067712229853881187" green="0.64230488989637302" blue="0.13792000307509719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w9F-8J-MYA">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1"/>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Second"/>
@@ -249,10 +255,10 @@
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUy-GA-vbN">
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUy-GA-vbN">
                                 <rect key="frame" x="0.0" y="451" width="375" height="216"/>
                             </pickerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1C-OT-qEd">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1C-OT-qEd">
                                 <rect key="frame" x="0.0" y="421" width="375" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-qh-I6e">
@@ -291,6 +297,7 @@
                         <outlet property="playersSegmentedControl" destination="w9F-8J-MYA" id="6bE-M5-kq5"/>
                         <outlet property="plusBtn" destination="bLz-cN-sUd" id="5zf-6s-Fpe"/>
                         <outlet property="startStopTimerBtn" destination="4Jv-wK-a6e" id="TR9-be-HFK"/>
+                        <outlet property="successMsg" destination="Yf8-08-E39" id="UBl-hl-fff"/>
                         <outlet property="tickBtn" destination="S6x-qh-I6e" id="5gx-m6-Rv6"/>
                         <outlet property="timerLabel" destination="pPv-k5-cnl" id="Fsh-dv-0yh"/>
                         <segue destination="d0l-FR-7L7" kind="show" identifier="endGameSegue" id="i0F-6A-DLF"/>

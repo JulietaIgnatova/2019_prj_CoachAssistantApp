@@ -11,6 +11,7 @@ import UIKit
 class GameTrackingViewController: UIViewController {
 
     //MARK: - Outlets
+    @IBOutlet weak var successMsg: UILabel!
     @IBOutlet weak var eventPicker: UIPickerView!
     @IBOutlet weak var tickBtn: UIButton!
     @IBOutlet weak var playersSegmentedControl: UISegmentedControl!
@@ -58,7 +59,6 @@ class GameTrackingViewController: UIViewController {
     //MARK: - View Controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        evenSelectionOutletsAreHidden(true)
         updateTimerLabel()
         pickerHeaderView.layer.borderWidth = 2
         pickerHeaderView.layer.borderColor = UIColor.lightGray.cgColor
@@ -75,7 +75,8 @@ class GameTrackingViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func onTapTick(_ sender: Any) {
-        evenSelectionOutletsAreHidden(true)
+        successMsg.isHidden = false
+        eventSelectionOutletsAreHidden(true)
         let minute = secondsPassed / 60 + 1
         let newEvent = Event(
             time: minute,
@@ -86,7 +87,9 @@ class GameTrackingViewController: UIViewController {
     }
     
     @IBAction func onTapPlus(_ sender: Any) {
-        evenSelectionOutletsAreHidden(false)
+        successMsg.isHidden = true
+        eventSelectionOutletsAreHidden(false)
+        
     }
     
     @IBAction func onTapStartStop(_ sender: UIButton) {
@@ -102,10 +105,10 @@ class GameTrackingViewController: UIViewController {
     
     
     //MARK: - Helpers
-    private func evenSelectionOutletsAreHidden(_ isHidden: Bool){
-        playersSegmentedControl.isHidden = isHidden
-        eventPicker.isHidden = isHidden
-        pickerHeaderView.isHidden = isHidden
+    private func eventSelectionOutletsAreHidden(_ areHidden: Bool){
+        playersSegmentedControl.isHidden = areHidden
+        eventPicker.isHidden = areHidden
+        pickerHeaderView.isHidden = areHidden
     }
     
     private func updateTimerLabel()
@@ -150,3 +153,5 @@ extension GameTrackingViewController: UIPickerViewDelegate {
         currSelectedEvent = EventType.allCases[row]
     }
 }
+
+
