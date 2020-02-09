@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum EventType: String {
+enum EventType: String, CaseIterable {
     case successPass = "Successful pass"
     case failedPass = "Failed pass"
     case goodPlay = "Good play"
