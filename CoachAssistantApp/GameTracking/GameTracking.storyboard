@@ -293,11 +293,20 @@
                         <outlet property="startStopTimerBtn" destination="4Jv-wK-a6e" id="TR9-be-HFK"/>
                         <outlet property="tickBtn" destination="S6x-qh-I6e" id="5gx-m6-Rv6"/>
                         <outlet property="timerLabel" destination="pPv-k5-cnl" id="Fsh-dv-0yh"/>
+                        <segue destination="d0l-FR-7L7" kind="show" identifier="endGameSegue" id="i0F-6A-DLF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwf-Lu-Ic6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1756" y="16.641679160419791"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="vZD-wp-uo6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report" id="d0l-FR-7L7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6u9-3V-8gJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2368" y="-19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s1I-Bd-Fmc">

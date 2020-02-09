@@ -12,9 +12,10 @@
 		746362A123EF118D00C5A48D /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A023EF118D00C5A48D /* UserID.swift */; };
 		746362A323EF11D700C5A48D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A223EF11D700C5A48D /* Game.swift */; };
 		746362A523EF129200C5A48D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A423EF129200C5A48D /* Event.swift */; };
+		746362A723F02C2700C5A48D /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A623F02C2600C5A48D /* EventType.swift */; };
 		C531D9C523F007D000D19207 /* GameTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531D9C423F007D000D19207 /* GameTrackingViewController.swift */; };
 		C546A07E23EEFF9700726554 /* SelectPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C546A07D23EEFF9700726554 /* SelectPlayerViewController.swift */; };
-		746362A723F02C2700C5A48D /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A623F02C2600C5A48D /* EventType.swift */; };
+		C5666C6D23F0427700E10269 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5666C6C23F0427700E10269 /* ReportViewController.swift */; };
 		C5B2AB6C23EED97400F052EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2AB6B23EED97400F052EE /* AppDelegate.swift */; };
 		C5B2AB7323EED97700F052EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5B2AB7223EED97700F052EE /* Assets.xcassets */; };
 		C5B2AB7623EED97700F052EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B2AB7423EED97700F052EE /* LaunchScreen.storyboard */; };
@@ -39,6 +40,7 @@
 		7CB8808478A75BB20A8CA210 /* Pods_CoachAssistantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachAssistantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C531D9C423F007D000D19207 /* GameTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrackingViewController.swift; sourceTree = "<group>"; };
 		C546A07D23EEFF9700726554 /* SelectPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayerViewController.swift; sourceTree = "<group>"; };
+		C5666C6C23F0427700E10269 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		C5B2AB6823EED97400F052EE /* CoachAssistantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachAssistantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B2AB6B23EED97400F052EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5B2AB7223EED97700F052EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B2AB8323EEDC3100F052EE /* Report.storyboard */,
+				C5666C6C23F0427700E10269 /* ReportViewController.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				C5B2AB8723EEDEB600F052EE /* MenuViewController.swift in Sources */,
 				746362A323EF11D700C5A48D /* Game.swift in Sources */,
 				C531D9C523F007D000D19207 /* GameTrackingViewController.swift in Sources */,
+				C5666C6D23F0427700E10269 /* ReportViewController.swift in Sources */,
 				7463629D23EEFEBD00C5A48D /* InformationModels.swift in Sources */,
 				C5B2AB6C23EED97400F052EE /* AppDelegate.swift in Sources */,
 				7463629F23EEFF0C00C5A48D /* Networking.swift in Sources */,

@@ -21,8 +21,16 @@ class GameTrackingViewController: UIViewController {
     
     //MARK: - Properties
     var arrayWithPlayers: [String] = []
+    
+    private let endGameSegueId = "endGameSegue"
+
+    private var currSelectedEvent = EventType.allCases[0]
+    private var arrayWithEvents: [Event] = []
     private let formatter = DateComponentsFormatter()
-    private var secondsLeft = 45 * 60
+    
+    private let endTime = 45*60
+    private var secondsPassed = 0
+    
     private var timer: Timer?
     private var timerIsPaused = true {
         didSet {
@@ -33,9 +41,9 @@ class GameTrackingViewController: UIViewController {
                     repeats: true,
                     block: { [weak self] _ in
                         guard let self = self else { return }
-                        self.secondsLeft -= 1
+                        self.secondsPassed += 1
                         self.updateTimerLabel()
-                        if self.secondsLeft == 0 {
+                        if self.secondsPassed == self.endTime {
                             self.onTapStartStop(self.startStopTimerBtn)
                         }
                     }
@@ -54,6 +62,10 @@ class GameTrackingViewController: UIViewController {
         updateTimerLabel()
         pickerHeaderView.layer.borderWidth = 2
         pickerHeaderView.layer.borderColor = UIColor.lightGray.cgColor
+        plusBtn.isHidden = true
+        
+        eventPicker.dataSource = self
+        eventPicker.delegate = self
         
         for i in 0..<arrayWithPlayers.count {
             playersSegmentedControl.setTitle(arrayWithPlayers[i], forSegmentAt: i)
@@ -64,12 +76,17 @@ class GameTrackingViewController: UIViewController {
     //MARK: - Actions
     @IBAction func onTapTick(_ sender: Any) {
         evenSelectionOutletsAreHidden(true)
-        timerIsPaused = false
+        let minute = secondsPassed / 60 + 1
+        let newEvent = Event(
+            time: minute,
+            type: currSelectedEvent.rawValue,
+            playerName: arrayWithPlayers[playersSegmentedControl.selectedSegmentIndex]
+        )
+        arrayWithEvents.append(newEvent)
     }
     
     @IBAction func onTapPlus(_ sender: Any) {
         evenSelectionOutletsAreHidden(false)
-        timerIsPaused = true
     }
     
     @IBAction func onTapStartStop(_ sender: UIButton) {
@@ -79,6 +96,7 @@ class GameTrackingViewController: UIViewController {
         } else {
             timerIsPaused = true
             sender.setTitle("▶️", for: .normal)
+            performSegue(withIdentifier: endGameSegueId, sender: self)
         }
     }
     
@@ -94,18 +112,41 @@ class GameTrackingViewController: UIViewController {
     {
         formatter.allowedUnits = [.minute, .second]
         formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
         
-        guard let formattedString = formatter.string(from: TimeInterval(secondsLeft)) else { return }
+        guard let formattedString = formatter.string(from: TimeInterval(secondsPassed)) else { return }
         timerLabel.text = formattedString
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard segue.identifier == endGameSegueId, let vc = segue.destination as? ReportViewController else {
+            return
+        }
+        
+        vc.events = arrayWithEvents
     }
-    */
+}
 
+// MARK: - Picker View Data Source
+extension GameTrackingViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return EventType.allCases.count
+    }
+}
+
+// MARK: - Picker View Delegate
+extension GameTrackingViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return EventType.allCases[row].rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currSelectedEvent = EventType.allCases[row]
+    }
 }
