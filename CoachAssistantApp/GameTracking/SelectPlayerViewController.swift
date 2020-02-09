@@ -22,7 +22,7 @@ class SelectPlayerViewController: UIViewController {
     
     @IBAction func onTapDoneBtn(_ sender: Any) {
         guard selectedPlayerButtons.count == 3 else {
-            let alert = UIAlertController(title: "Error", message: "Please select only three players.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error⚠️", message: "Please select only three players.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             return
@@ -50,16 +50,16 @@ class SelectPlayerViewController: UIViewController {
             button.setTitleColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), for: .selected)
         }
     }
-    
-
-    /*
+   
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard segue.identifier == segueId, let vc = segue.destination as? GameTrackingViewController else {
+            return
+        }
+        
+        vc.arrayWithPlayers = selectedPlayerButtons.map { $0.title(for: .normal)! }
     }
-    */
+    
 
 }
