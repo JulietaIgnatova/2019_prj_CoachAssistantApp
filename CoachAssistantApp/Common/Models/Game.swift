@@ -12,4 +12,5 @@ struct Game: Codable {
     let players: [String]
     let events: [Event]
     let duration: Int
+    let name: String
 }
