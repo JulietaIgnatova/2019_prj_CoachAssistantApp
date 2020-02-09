@@ -16,7 +16,7 @@ class Networking {
     private init() {}
     static let shared = Networking()
     
-    private(set) var userID: String? = "sampleUserID"
+    private(set) var userID: String?
         
     func fetchGames(completion: @escaping ([Game]?) -> Void) {
         guard let user = userID else {
@@ -50,6 +50,33 @@ class Networking {
             db.child("users").child(user).child("games").childByAutoId().setValue(encodedGame)
         } catch let error {
             print(error)
+        }
+    }
+    
+    func registerUser(useremail: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
+        Auth.auth().createUser(withEmail: useremail, password: password) {
+            (result, err) in
+            guard err == nil, result != nil else {
+                print(err as Any)
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
+    }
+    
+    func loginUser(useremail: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
+        Auth.auth().signIn(withEmail: useremail, password: password) {
+            [weak self] (result, err) in
+            guard err == nil, let result = result else {
+                print(err as Any)
+                completion(false)
+                return
+            }
+            
+            self?.userID = result.user.uid
+            completion(true)
         }
     }
 }
