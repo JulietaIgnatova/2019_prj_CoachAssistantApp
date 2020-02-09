@@ -129,6 +129,22 @@ class GameTrackingViewController: UIViewController {
         }
         
         vc.events = arrayWithEvents
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        let formattedDate = formatter.string(from: Date())
+        
+        let gameName = "Game \(formattedDate)"
+        
+        let newGame = Game(
+            players: arrayWithPlayers,
+            events: arrayWithEvents,
+            duration: secondsPassed,
+            name: gameName
+        )
+        Networking.shared.addGame(newGame)
     }
 }
 

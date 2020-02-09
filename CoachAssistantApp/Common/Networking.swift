@@ -16,24 +16,40 @@ class Networking {
     private init() {}
     static let shared = Networking()
     
-    func fetchGames(for userID: String, completion: @escaping ([Game]?) -> Void) {
-        db.child("users").child(userID).observeSingleEvent(
+    private(set) var userID: String? = "sampleUserID"
+        
+    func fetchGames(completion: @escaping ([Game]?) -> Void) {
+        guard let user = userID else {
+            completion(nil)
+            return
+        }
+        db.child("users").child(user).observeSingleEvent(
             of: .value,
             with: { snapshot in
-                guard let value = snapshot.value else { return }
+                guard let value = snapshot.value else {
+                    completion(nil)
+                    return
+                }
                 do {
-                    let decodedData = try FirebaseDecoder().decode([String : [Game]].self, from: value)
-                    completion(decodedData["games"] ?? [])
+                    let decodedData = try FirebaseDecoder().decode(UserID.self, from: value)
+                    completion(Array(decodedData.games.values))
                 } catch let error {
                     print(error)
                     completion(nil)
                 }
-            }) { error in
+            }, withCancel: { error in
                 print(error)
                 completion(nil)
-            }
-        
+            })
     }
     
-    
+    func addGame(_ game: Game) {
+        guard let user = userID else { return }
+        do {
+            let encodedGame = try FirebaseEncoder().encode(game)
+            db.child("users").child(user).child("games").childByAutoId().setValue(encodedGame)
+        } catch let error {
+            print(error)
+        }
+    }
 }

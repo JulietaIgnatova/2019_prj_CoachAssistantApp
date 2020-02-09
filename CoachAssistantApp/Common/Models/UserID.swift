@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct UserID {
-    var games: [Game]
+struct UserID: Codable {
+    var games: [String: Game]
 }
