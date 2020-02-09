@@ -23,7 +23,16 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         tableViewForAllGames.delegate = self
         tableViewForAllGames.dataSource = self
-        arrayWithGames = Networking.shared.fetchGames(for: "dT")
+        Networking.shared.fetchGames(for: "7777", completion: {
+            [weak self] games in
+            guard let self = self, let games = games else {
+                print("Fetch failure.")
+                return
+            }
+            self.arrayWithGames = games
+            self.tableViewForAllGames?.reloadData()
+        })
+        
         tableViewForAllGames.dataSource = self
         
     }

@@ -78,6 +78,7 @@
 		740D361223EEFD740056D2A8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7463629E23EEFF0C00C5A48D /* Networking.swift */,
 				740D361323EEFD950056D2A8 /* Models */,
 			);
 			path = Common;
@@ -87,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				7463629C23EEFEBD00C5A48D /* InformationModels.swift */,
-				7463629E23EEFF0C00C5A48D /* Networking.swift */,
 				746362A023EF118D00C5A48D /* UserID.swift */,
 				746362A223EF11D700C5A48D /* Game.swift */,
 				746362A423EF129200C5A48D /* Event.swift */,
