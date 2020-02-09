@@ -11,4 +11,5 @@ import Foundation
 struct Event: Codable {
     let time: Int
     let type: String
+    let playerName: String
 }

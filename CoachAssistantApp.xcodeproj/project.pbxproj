@@ -12,6 +12,7 @@
 		746362A123EF118D00C5A48D /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A023EF118D00C5A48D /* UserID.swift */; };
 		746362A323EF11D700C5A48D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A223EF11D700C5A48D /* Game.swift */; };
 		746362A523EF129200C5A48D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A423EF129200C5A48D /* Event.swift */; };
+		746362A723F02C2700C5A48D /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A623F02C2600C5A48D /* EventType.swift */; };
 		C5B2AB6C23EED97400F052EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2AB6B23EED97400F052EE /* AppDelegate.swift */; };
 		C5B2AB7323EED97700F052EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5B2AB7223EED97700F052EE /* Assets.xcassets */; };
 		C5B2AB7623EED97700F052EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B2AB7423EED97700F052EE /* LaunchScreen.storyboard */; };
@@ -32,6 +33,7 @@
 		746362A023EF118D00C5A48D /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		746362A223EF11D700C5A48D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		746362A423EF129200C5A48D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		746362A623F02C2600C5A48D /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		7CB8808478A75BB20A8CA210 /* Pods_CoachAssistantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachAssistantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B2AB6823EED97400F052EE /* CoachAssistantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachAssistantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B2AB6B23EED97400F052EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				746362A023EF118D00C5A48D /* UserID.swift */,
 				746362A223EF11D700C5A48D /* Game.swift */,
 				746362A423EF129200C5A48D /* Event.swift */,
+				746362A623F02C2600C5A48D /* EventType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				C5B2AB6C23EED97400F052EE /* AppDelegate.swift in Sources */,
 				7463629F23EEFF0C00C5A48D /* Networking.swift in Sources */,
 				746362A523EF129200C5A48D /* Event.swift in Sources */,
+				746362A723F02C2700C5A48D /* EventType.swift in Sources */,
 				746362A123EF118D00C5A48D /* UserID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
