@@ -16,7 +16,7 @@ class Networking {
     private init() {}
     static let shared = Networking()
     
-    private(set) var userID: String?
+    private(set) var userID: String? = "sampleUserID"
         
     func fetchGames(completion: @escaping ([Game]?) -> Void) {
         guard let user = userID else {
