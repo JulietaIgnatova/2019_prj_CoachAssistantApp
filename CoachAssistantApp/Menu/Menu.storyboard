@@ -67,12 +67,11 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="gfw-Ql-Ydo">
                             <connections>
-                                <segue destination="a3u-vo-LkJ" kind="show" id="Zk6-G9-rzv"/>
+                                <segue destination="a3u-vo-LkJ" kind="show" identifier="selectPlayersSegue" id="Zk6-G9-rzv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="plusBtn" destination="gfw-Ql-Ydo" id="IVb-wQ-KtC"/>
                         <outlet property="tableViewForAllGames" destination="dwX-VA-xal" id="uDt-Um-ZcP"/>
                     </connections>
                 </viewController>
@@ -86,7 +85,7 @@
                 <viewControllerPlaceholder storyboardName="Report" id="muj-Q1-OKJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKx-CW-DRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="283" y="-30"/>
+            <point key="canvasLocation" x="274" y="345"/>
         </scene>
         <!--GameTracking-->
         <scene sceneID="zB0-8H-gg8">
@@ -94,7 +93,7 @@
                 <viewControllerPlaceholder storyboardName="GameTracking" id="a3u-vo-LkJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBU-PI-PsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275" y="137"/>
+            <point key="canvasLocation" x="272" y="-130"/>
         </scene>
     </scenes>
 </document>

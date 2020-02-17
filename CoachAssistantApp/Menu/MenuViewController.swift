@@ -14,26 +14,25 @@ class MenuViewController: UIViewController {
     var arrayWithGames: [Game] = []
     let cellGameId = "gameCell"
     private let gameReportSegueId = "gameReportSegue"
+    private let selectPlayerSegueId = "selectPlayersSegue"
     
     //MARK: - Actions
     @IBAction func editBtn(_ sender: UIBarButtonItem) {
         if tableViewForAllGames.isEditing {
             tableViewForAllGames.isEditing = false
             sender.title = "Edit"
-            let plusButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+            let plusButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onTapPlusBtn(_:)))
             navigationItem.rightBarButtonItem = plusButtonItem
         } else {
             tableViewForAllGames.isEditing = true
             sender.title = "Done"
-            plusBtn.isEnabled = false
-            let trashButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTapTrashButton(_:)))
+            let trashButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTapTrashBtn(_:)))
             navigationItem.rightBarButtonItem = trashButtonItem
         }
     }
     
     //MARK: - Outlets
     @IBOutlet weak var tableViewForAllGames: UITableView!
-    @IBOutlet weak var plusBtn: UIBarButtonItem!
     
     //MARK: - ViewController Lifecycle
     override func viewDidLoad() {
@@ -95,7 +94,7 @@ class MenuViewController: UIViewController {
         })
     }
     
-    @objc private func onTapTrashButton(_ sender: UIBarButtonItem) {
+    @objc private func onTapTrashBtn(_ sender: UIBarButtonItem) {
         guard let selectedRowsIndexPaths = tableViewForAllGames.indexPathsForSelectedRows else {
             return
         }
@@ -106,6 +105,10 @@ class MenuViewController: UIViewController {
             Networking.shared.removeGame(gameToRemove)
         }
         tableViewForAllGames.deleteRows(at: selectedRowsIndexPaths, with: .automatic)
+    }
+    
+    @objc private func onTapPlusBtn(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: selectPlayerSegueId, sender: sender)
     }
 }
 
