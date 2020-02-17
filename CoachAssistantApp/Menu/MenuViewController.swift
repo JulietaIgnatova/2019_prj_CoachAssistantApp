@@ -20,15 +20,20 @@ class MenuViewController: UIViewController {
         if tableViewForAllGames.isEditing {
             tableViewForAllGames.isEditing = false
             sender.title = "Edit"
+            let plusButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+            navigationItem.rightBarButtonItem = plusButtonItem
         } else {
             tableViewForAllGames.isEditing = true
             sender.title = "Done"
-            
+            plusBtn.isEnabled = false
+            let trashButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTapTrashButton(_:)))
+            navigationItem.rightBarButtonItem = trashButtonItem
         }
     }
     
     //MARK: - Outlets
     @IBOutlet weak var tableViewForAllGames: UITableView!
+    @IBOutlet weak var plusBtn: UIBarButtonItem!
     
     //MARK: - ViewController Lifecycle
     override func viewDidLoad() {
@@ -46,6 +51,13 @@ class MenuViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if tableViewForAllGames.isEditing {
+            return false
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == gameReportSegueId,
             let vc = segue.destination as? ReportViewController,
@@ -83,6 +95,18 @@ class MenuViewController: UIViewController {
         })
     }
     
+    @objc private func onTapTrashButton(_ sender: UIBarButtonItem) {
+        guard let selectedRowsIndexPaths = tableViewForAllGames.indexPathsForSelectedRows else {
+            return
+        }
+        for indexPath in selectedRowsIndexPaths {
+            let row = indexPath.row
+            let gameToRemove = arrayWithGames[row]
+            arrayWithGames.remove(at: row)
+            Networking.shared.removeGame(gameToRemove)
+        }
+        tableViewForAllGames.deleteRows(at: selectedRowsIndexPaths, with: .automatic)
+    }
 }
 
 //MARK: - Table View Data Source
@@ -101,9 +125,10 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
+            let gameToRemove = arrayWithGames[indexPath.row]
             arrayWithGames.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-        // TODO: remove from database
+            Networking.shared.removeGame(gameToRemove)
         default:
             break
         }

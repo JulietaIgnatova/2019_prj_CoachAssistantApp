@@ -17,6 +17,8 @@ class Networking {
     static let shared = Networking()
     
     private(set) var userID: String? = "sampleUserID"
+    
+    var userGames: UserID?
         
     func fetchGames(completion: @escaping ([Game]?) -> Void) {
         guard let user = userID else {
@@ -32,6 +34,7 @@ class Networking {
                 }
                 do {
                     let decodedData = try FirebaseDecoder().decode(UserID.self, from: value)
+                    self.userGames = decodedData
                     completion(Array(decodedData.games.values))
                 } catch let error {
                     print(error)
@@ -51,6 +54,16 @@ class Networking {
         } catch let error {
             print(error)
         }
+    }
+    
+    func removeGame(_ game: Game) {
+        guard let user = userID else { return }
+        guard let gameID = userGames?.games.filter({ keyValuePair -> Bool in
+            return keyValuePair.value == game
+        }).first?.key else {
+            return
+        }
+        db.child("users").child(user).child("games").child(gameID).setValue(nil)
     }
     
     func registerUser(useremail: String, password: String, completion: @escaping (_ success: Bool) -> Void) {

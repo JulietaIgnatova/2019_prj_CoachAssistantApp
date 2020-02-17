@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Game: Codable {
+struct Game: Codable, Equatable {
     let players: [String]
     let events: [Event]
     let duration: Int
