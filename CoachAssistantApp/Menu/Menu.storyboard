@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-VA-xal">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-VA-xal">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -62,6 +62,11 @@
                         <viewLayoutGuide key="safeArea" id="iP2-Bl-qzP"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Games" id="RsH-JK-2x5">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="RCR-P4-q02">
+                            <connections>
+                                <action selector="editBtn:" destination="sm1-qB-WQR" id="9OX-Ec-OVV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="gfw-Ql-Ydo">
                             <connections>
                                 <segue destination="a3u-vo-LkJ" kind="show" id="Zk6-G9-rzv"/>

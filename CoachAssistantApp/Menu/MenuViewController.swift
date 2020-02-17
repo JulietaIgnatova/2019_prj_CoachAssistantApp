@@ -13,7 +13,19 @@ class MenuViewController: UIViewController {
     //MARK: - Properties
     var arrayWithGames: [Game] = []
     let cellGameId = "gameCell"
-    private let gameReportSegueSegueId = "gameReportSegue"
+    private let gameReportSegueId = "gameReportSegue"
+    
+    //MARK: - Actions
+    @IBAction func editBtn(_ sender: UIBarButtonItem) {
+        if tableViewForAllGames.isEditing {
+            tableViewForAllGames.isEditing = false
+            sender.title = "Edit"
+        } else {
+            tableViewForAllGames.isEditing = true
+            sender.title = "Done"
+            
+        }
+    }
     
     //MARK: - Outlets
     @IBOutlet weak var tableViewForAllGames: UITableView!
@@ -35,7 +47,7 @@ class MenuViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == gameReportSegueSegueId,
+        guard segue.identifier == gameReportSegueId,
             let vc = segue.destination as? ReportViewController,
         let cell = sender as? UITableViewCell,
         let cellIndexPath = tableViewForAllGames.indexPath(for: cell) else {
@@ -80,6 +92,17 @@ extension MenuViewController: UITableViewDataSource {
         let currentGame = arrayWithGames[indexPath.row]
         cell.textLabel?.text = currentGame.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            arrayWithGames.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        // TODO: remove from database
+        default:
+            break
+        }
     }
 }
 

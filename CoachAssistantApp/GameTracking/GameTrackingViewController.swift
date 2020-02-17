@@ -97,9 +97,15 @@ class GameTrackingViewController: UIViewController {
             timerIsPaused = false
             sender.setTitle("⏹", for: .normal)
         } else {
-            timerIsPaused = true
-            sender.setTitle("▶️", for: .normal)
-            performSegue(withIdentifier: endGameSegueId, sender: self)
+            if arrayWithEvents.isEmpty {
+                let alert = UIAlertController(title: "Error⚠️", message: "Please end the game with at least one event.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+            } else {
+                timerIsPaused = true
+                sender.setTitle("▶️", for: .normal)
+                performSegue(withIdentifier: endGameSegueId, sender: self)
+            }
         }
     }
     
@@ -132,7 +138,6 @@ class GameTrackingViewController: UIViewController {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         let formattedDate = formatter.string(from: Date())
         
