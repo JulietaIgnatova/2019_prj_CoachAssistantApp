@@ -63,6 +63,10 @@ class MenuViewController: UIViewController {
             }
             
             self.arrayWithGames = games
+            self.arrayWithGames.sort(by: {
+                (g1,g2) -> Bool in
+                g1.name > g2.name
+            })
             self.tableViewForAllGames?.reloadData()
         })
     }
