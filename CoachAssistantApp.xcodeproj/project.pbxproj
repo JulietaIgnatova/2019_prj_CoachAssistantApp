@@ -12,6 +12,7 @@
 		746362A323EF11D700C5A48D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A223EF11D700C5A48D /* Game.swift */; };
 		746362A523EF129200C5A48D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A423EF129200C5A48D /* Event.swift */; };
 		746362A723F02C2700C5A48D /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A623F02C2600C5A48D /* EventType.swift */; };
+		746362AF23FDD9C300C5A48D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362AE23FDD9C300C5A48D /* LoginViewController.swift */; };
 		C531D9C523F007D000D19207 /* GameTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531D9C423F007D000D19207 /* GameTrackingViewController.swift */; };
 		C546A07E23EEFF9700726554 /* SelectPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C546A07D23EEFF9700726554 /* SelectPlayerViewController.swift */; };
 		C5666C6D23F0427700E10269 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5666C6C23F0427700E10269 /* ReportViewController.swift */; };
@@ -35,6 +36,7 @@
 		746362A223EF11D700C5A48D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		746362A423EF129200C5A48D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		746362A623F02C2600C5A48D /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		746362AE23FDD9C300C5A48D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7CB8808478A75BB20A8CA210 /* Pods_CoachAssistantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachAssistantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C531D9C423F007D000D19207 /* GameTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrackingViewController.swift; sourceTree = "<group>"; };
 		C546A07D23EEFF9700726554 /* SelectPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayerViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B2AB7D23EEDBF900F052EE /* Authentication.storyboard */,
+				746362AE23FDD9C300C5A48D /* LoginViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				746362A523EF129200C5A48D /* Event.swift in Sources */,
 				746362A723F02C2700C5A48D /* EventType.swift in Sources */,
 				746362A123EF118D00C5A48D /* UserID.swift in Sources */,
+				746362AF23FDD9C300C5A48D /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
