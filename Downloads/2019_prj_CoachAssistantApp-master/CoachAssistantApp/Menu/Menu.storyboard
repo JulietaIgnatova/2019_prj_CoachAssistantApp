@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8hg-7E-UD7">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="7ps-h5-58F">
+            <objects>
+                <navigationController id="8hg-7E-UD7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zjM-Hy-MDr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sm1-qB-WQR" kind="relationship" relationship="rootViewController" id="keh-Es-JnC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISn-CC-BBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1558" y="158"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="Ttt-eO-PtW">
+            <objects>
+                <viewController title="Menu" id="sm1-qB-WQR" customClass="MenuViewController" customModule="CoachAssistantApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDs-Vn-rUS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-VA-xal">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gameCell" id="ynq-Zw-Hxk">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ynq-Zw-Hxk" id="mVb-QN-GCx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="muj-Q1-OKJ" kind="show" identifier="gameReportSegue" id="AHD-hI-RVn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dwX-VA-xal" firstAttribute="trailing" secondItem="iP2-Bl-qzP" secondAttribute="trailing" id="1px-Yf-woA"/>
+                            <constraint firstItem="dwX-VA-xal" firstAttribute="bottom" secondItem="iP2-Bl-qzP" secondAttribute="bottom" id="eeC-yZ-2ww"/>
+                            <constraint firstItem="dwX-VA-xal" firstAttribute="leading" secondItem="iP2-Bl-qzP" secondAttribute="leading" id="jhQ-VN-4H7"/>
+                            <constraint firstItem="dwX-VA-xal" firstAttribute="top" secondItem="KDs-Vn-rUS" secondAttribute="top" id="ne0-3U-Zj9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iP2-Bl-qzP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="All Games" id="RsH-JK-2x5">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="RCR-P4-q02">
+                            <connections>
+                                <action selector="editBtn:" destination="sm1-qB-WQR" id="9OX-Ec-OVV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="gfw-Ql-Ydo">
+                            <connections>
+                                <segue destination="a3u-vo-LkJ" kind="show" identifier="selectPlayersSegue" id="Zk6-G9-rzv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableViewForAllGames" destination="dwX-VA-xal" id="uDt-Um-ZcP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntL-J1-dwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559" y="158"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="Ssf-j8-Y5p">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report" id="muj-Q1-OKJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lKx-CW-DRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="345"/>
+        </scene>
+        <!--GameTracking-->
+        <scene sceneID="zB0-8H-gg8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GameTracking" id="a3u-vo-LkJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBU-PI-PsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="-130"/>
+        </scene>
+    </scenes>
+</document>
