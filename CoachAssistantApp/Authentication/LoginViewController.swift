@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  CoachAssistantApp
 //
-//  Created by Yalishanda on 19.02.20.
+//  Created by Dimitar Parapanov on 19.02.20.
 //  Copyright © 2020 Swift FMI. All rights reserved.
 //
 
@@ -31,9 +31,7 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     @IBAction func onTapLoginButton(_ sender: UIButton) {
         guard let username = emailField.text, let password = passwordField.text else {
-            let alertController = UIAlertController(title: "Password missing!", message: "Please enter a password.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
+            present(UIAlertController.createDefaultAlert(title: "Password missing!", message: "Please enter a password."), animated: true, completion: nil)
             return
         }
         

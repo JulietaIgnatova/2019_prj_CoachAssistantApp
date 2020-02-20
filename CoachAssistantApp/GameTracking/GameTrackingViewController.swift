@@ -98,9 +98,7 @@ class GameTrackingViewController: UIViewController {
             sender.setTitle("⏹", for: .normal)
         } else {
             if arrayWithEvents.isEmpty {
-                let alert = UIAlertController(title: "Error⚠️", message: "Please end the game with at least one event.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                present(alert, animated: true, completion: nil)
+                present(UIAlertController.createDefaultAlert(title: "Error⚠️", message: "Please end the game with at least one event."), animated: true, completion: nil)
             } else {
                 timerIsPaused = true
                 sender.setTitle("▶️", for: .normal)

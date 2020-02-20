@@ -22,9 +22,7 @@ class SelectPlayerViewController: UIViewController {
     
     @IBAction func onTapDoneBtn(_ sender: Any) {
         guard selectedPlayerButtons.count == 3 else {
-            let alert = UIAlertController(title: "Error⚠️", message: "Please select only three players.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
+            present(UIAlertController.createDefaultAlert(title: "Error⚠️", message: "Please select only three players."), animated: true, completion: nil)
             return
         }
     

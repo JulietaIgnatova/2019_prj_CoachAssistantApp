@@ -2,7 +2,7 @@
 //  AuthenticationConstants.swift
 //  CoachAssistantApp
 //
-//  Created by Alexander Ignatov on 20.02.20.
+//  Created by Dimitar Parapanov on 20.02.20.
 //  Copyright © 2020 Swift FMI. All rights reserved.
 //
 
