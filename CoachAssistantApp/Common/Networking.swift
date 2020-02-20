@@ -16,7 +16,7 @@ class Networking {
     private init() {}
     static let shared = Networking()
     
-    private(set) var userID: String? = "sampleUserID"
+    private(set) var userID: String?
     
     var userGames: UserID?
         
@@ -35,7 +35,15 @@ class Networking {
                 do {
                     let decodedData = try FirebaseDecoder().decode(UserID.self, from: value)
                     self.userGames = decodedData
-                    completion(Array(decodedData.games.values))
+                    completion(decodedData.games?.map { $0.value })
+                } catch _ as DecodingError {
+                    // Handle dummy 0 as value of "games", representing empty object in Firebase's database
+                    if (value as? [String: Int]) != nil {
+                        self.userGames = UserID(games: [:])
+                        completion([])
+                        return
+                    }
+                    completion(nil)
                 } catch let error {
                     print(error)
                     completion(nil)
@@ -58,7 +66,7 @@ class Networking {
     
     func removeGame(_ game: Game) {
         guard let user = userID else { return }
-        guard let gameID = userGames?.games.filter({ keyValuePair -> Bool in
+        guard let gameID = userGames?.games?.filter({ keyValuePair -> Bool in
             return keyValuePair.value == game
         }).first?.key else {
             return
@@ -68,13 +76,15 @@ class Networking {
     
     func registerUser(useremail: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: useremail, password: password) {
-            (result, err) in
+            [weak self] (result, err) in
             guard err == nil, result != nil else {
                 print(err as Any)
                 completion(false)
                 return
             }
             
+            let userID = result?.user.uid ?? "sampleUserID"
+            self?.db.child("users").child(userID).child("games").setValue(0) // Dummy 0 to handle empty games object
             completion(true)
         }
     }

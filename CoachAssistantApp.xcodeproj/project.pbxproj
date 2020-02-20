@@ -13,6 +13,11 @@
 		746362A523EF129200C5A48D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A423EF129200C5A48D /* Event.swift */; };
 		746362A723F02C2700C5A48D /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362A623F02C2600C5A48D /* EventType.swift */; };
 		746362AF23FDD9C300C5A48D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746362AE23FDD9C300C5A48D /* LoginViewController.swift */; };
+		747F230E23FDE9B800C17BC6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747F230D23FDE9B800C17BC6 /* Colors.xcassets */; };
+		747F231023FDEA4800C17BC6 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F230F23FDEA4800C17BC6 /* RegistrationViewController.swift */; };
+		747F231223FDF4E200C17BC6 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F231123FDF4E200C17BC6 /* AuthenticationConstants.swift */; };
+		747F231423FDF5DE00C17BC6 /* UIAlertController+createDefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F231323FDF5DE00C17BC6 /* UIAlertController+createDefaultAlert.swift */; };
+		747F231723FE018D00C17BC6 /* EmptyUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F231623FE018D00C17BC6 /* EmptyUserID.swift */; };
 		C531D9C523F007D000D19207 /* GameTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531D9C423F007D000D19207 /* GameTrackingViewController.swift */; };
 		C546A07E23EEFF9700726554 /* SelectPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C546A07D23EEFF9700726554 /* SelectPlayerViewController.swift */; };
 		C5666C6D23F0427700E10269 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5666C6C23F0427700E10269 /* ReportViewController.swift */; };
@@ -37,6 +42,11 @@
 		746362A423EF129200C5A48D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		746362A623F02C2600C5A48D /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		746362AE23FDD9C300C5A48D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		747F230D23FDE9B800C17BC6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		747F230F23FDEA4800C17BC6 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		747F231123FDF4E200C17BC6 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
+		747F231323FDF5DE00C17BC6 /* UIAlertController+createDefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+createDefaultAlert.swift"; sourceTree = "<group>"; };
+		747F231623FE018D00C17BC6 /* EmptyUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserID.swift; sourceTree = "<group>"; };
 		7CB8808478A75BB20A8CA210 /* Pods_CoachAssistantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachAssistantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C531D9C423F007D000D19207 /* GameTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrackingViewController.swift; sourceTree = "<group>"; };
 		C546A07D23EEFF9700726554 /* SelectPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayerViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +88,7 @@
 		740D361223EEFD740056D2A8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				747F231523FDF67200C17BC6 /* Extensions */,
 				7463629E23EEFF0C00C5A48D /* Networking.swift */,
 				740D361323EEFD950056D2A8 /* Models */,
 			);
@@ -91,8 +102,17 @@
 				746362A223EF11D700C5A48D /* Game.swift */,
 				746362A423EF129200C5A48D /* Event.swift */,
 				746362A623F02C2600C5A48D /* EventType.swift */,
+				747F231623FE018D00C17BC6 /* EmptyUserID.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		747F231523FDF67200C17BC6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				747F231323FDF5DE00C17BC6 /* UIAlertController+createDefaultAlert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C5B2AB5F23EED97400F052EE = {
@@ -123,6 +143,7 @@
 				C5B2AB8923EEDF1B00F052EE /* Report */,
 				C5B2AB6B23EED97400F052EE /* AppDelegate.swift */,
 				C5B2AB7223EED97700F052EE /* Assets.xcassets */,
+				747F230D23FDE9B800C17BC6 /* Colors.xcassets */,
 				C5B2AB7423EED97700F052EE /* LaunchScreen.storyboard */,
 				C5B2AB7723EED97700F052EE /* Info.plist */,
 				C5B2AB8B23EEE3E000F052EE /* GoogleService-Info.plist */,
@@ -163,6 +184,8 @@
 			children = (
 				C5B2AB7D23EEDBF900F052EE /* Authentication.storyboard */,
 				746362AE23FDD9C300C5A48D /* LoginViewController.swift */,
+				747F230F23FDEA4800C17BC6 /* RegistrationViewController.swift */,
+				747F231123FDF4E200C17BC6 /* AuthenticationConstants.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -240,6 +263,7 @@
 				C5B2AB7E23EEDBF900F052EE /* Authentication.storyboard in Resources */,
 				C5B2AB7623EED97700F052EE /* LaunchScreen.storyboard in Resources */,
 				C5B2AB7323EED97700F052EE /* Assets.xcassets in Resources */,
+				747F230E23FDE9B800C17BC6 /* Colors.xcassets in Resources */,
 				C5B2AB8223EEDC1C00F052EE /* GameTracking.storyboard in Resources */,
 				C5B2AB8C23EEE3E000F052EE /* GoogleService-Info.plist in Resources */,
 			);
@@ -295,11 +319,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C546A07E23EEFF9700726554 /* SelectPlayerViewController.swift in Sources */,
+				747F231723FE018D00C17BC6 /* EmptyUserID.swift in Sources */,
 				C5B2AB8723EEDEB600F052EE /* MenuViewController.swift in Sources */,
 				746362A323EF11D700C5A48D /* Game.swift in Sources */,
 				C531D9C523F007D000D19207 /* GameTrackingViewController.swift in Sources */,
 				C5666C6D23F0427700E10269 /* ReportViewController.swift in Sources */,
 				C5B2AB6C23EED97400F052EE /* AppDelegate.swift in Sources */,
+				747F231223FDF4E200C17BC6 /* AuthenticationConstants.swift in Sources */,
+				747F231423FDF5DE00C17BC6 /* UIAlertController+createDefaultAlert.swift in Sources */,
+				747F231023FDEA4800C17BC6 /* RegistrationViewController.swift in Sources */,
 				7463629F23EEFF0C00C5A48D /* Networking.swift in Sources */,
 				746362A523EF129200C5A48D /* Event.swift in Sources */,
 				746362A723F02C2700C5A48D /* EventType.swift in Sources */,

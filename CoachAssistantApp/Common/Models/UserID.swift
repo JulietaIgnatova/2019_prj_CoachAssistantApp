@@ -9,5 +9,5 @@
 import Foundation
 
 struct UserID: Codable {
-    var games: [String: Game]
+    var games: [String: Game]?
 }
